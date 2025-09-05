@@ -1,6 +1,11 @@
-FROM nginx:alpine  
+# Use a lightweight web server
+FROM nginx:alpine
 
-# Copy static html file into nginx web root
-COPY netflix.html /usr/share/nginx/html/index.html  
+# Copy your HTML file(s) into Nginx default directory
+COPY netflix.html /usr/share/nginx/html/index.html
 
+# Expose port 80
 EXPOSE 80
+
+# Start Nginx automatically
+CMD ["nginx", "-g", "daemon off;"]
